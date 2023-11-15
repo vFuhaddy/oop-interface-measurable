@@ -1,7 +1,9 @@
+package org.example;
+
 /**
    This program demonstrates the measurable BankAccount and Country classes.
 */
-public class MeasurableDemo
+public class MainApp
 {
    public static void main(String[] args)
    {
@@ -9,6 +11,10 @@ public class MeasurableDemo
       accounts[0] = new BankAccount(0);
       accounts[1] = new BankAccount(10000);
       accounts[2] = new BankAccount(2000);
+
+      Measurable m1 = new BankAccount(2000);
+      System.out.println( m1.getMeasure()          );
+
 
       System.out.println("Average balance: " 
          + average(accounts));

@@ -1,3 +1,5 @@
+package org.example;
+
 /**
    Describes any class whose objects can be measured.
 */

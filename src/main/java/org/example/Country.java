@@ -1,3 +1,5 @@
+package org.example;
+
 /**
    A country with a name and area.
 */
