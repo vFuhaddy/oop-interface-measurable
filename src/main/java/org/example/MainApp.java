@@ -51,7 +51,7 @@ public class MainApp
       // must have implemented the draw() method from the interface.
       // Write and call the drawAll() method, passing an array of Countries.
       // To implement a draw() method, simply print out a string "printing a Country",
-      // for the Country class.
+      // for the Country class, and "drawing a BankAccount" for a BankAccount. !
       //
    }
 
