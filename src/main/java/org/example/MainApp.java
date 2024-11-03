@@ -1,7 +1,13 @@
-package org.example;
+package org.example;    // Nov 2024
 
 /**
-   This program demonstrates the measurable BankAccount and Country classes.
+ This program demonstrates the use of a Measurable Interface.
+ BankAccount and Country classes implement the Measurable interface.
+ A method average() offers the service of averaging an array of elements -
+ but only if the elements are of type Measurable.
+ So, arrays that use this service must ensure that the objects in the array
+ are of type measurable.
+ This is the *contract* between the service and its users.
 */
 public class MainApp
 {
@@ -41,23 +47,28 @@ public class MainApp
       arrayOfMeasurable[2] = new Country("Uruguay", 176220);
       arrayOfMeasurable[3] = new Country("Thailand", 514000);
 
+      // We can pass the array of Measurable objects to the average() method,
+      // but, in this case it doesn't really a lot of sense in this case as
+      // the measures of BankAccount and Country are two unrelated things.
+      //
       System.out.println("Average area of measurables: "
               + average(arrayOfMeasurable));
+   }//end main.
 
-      //TODO
-      // As an exercise, assume that we want to create a method drawAll() that
-      // will accept an array of Drawable objects.  By Drawable, we mean that
-      // the objects must have implemented the drawable interface, and that they
-      // must have implemented the draw() method from the interface.
-      // Write and call the drawAll() method, passing an array of Countries.
-      // To implement a draw() method, simply print out a string "printing a Country",
-      // for the Country class, and "drawing a BankAccount" for a BankAccount. !
-      //
-   }
 
-   /**
+   //TODO
+   // As an exercise, write a method:
+   // increaseBy( Measurable[] objects, int percent )
+   // that will accept an array of Measurable objects, and will increase
+   // the measure of all objects by the percentage argument.  (e.g. 10 for 10%)
+   // The method will only work for objects that are of type Measurable.
+   // Call the method twice, once passing countries[] and then passing accounts[]
+   // and check to see if the method has made the intended increases.
+
+
+   /** average()
       Computes the average of the measures of the given objects.
-      @param objects an array of Measurable objects
+      @param objects an array of Measurable objects (requirement of the contract)
       @return the average of the measures
       This method provides the service of getting the average of the measures
       of an array of objects - but only if the objects are Measurable.
@@ -65,10 +76,15 @@ public class MainApp
       the measurable interface and have implemented the getMeasure()
       method.
       The interface is a contract that lists the methods that must be implemented.
+      The contract states that a measurable object must provide a measure() method
+      that can be called to provide a measure of that object.
 
-    Notice here that the function depends only on the Interface.
+    Notice here that the method code depends only on the Interface, and uses
+      references of the interface type (i.e. Measurable)
     - All references are of type Measurable
-    - All functions called are declared in the interface
+    - All functions called are declared in the interface (i.e. getMeasure() )
+
+    This method can deal only with objects of type Measurable.
    */
    public static double average(Measurable[] objects)
    {
