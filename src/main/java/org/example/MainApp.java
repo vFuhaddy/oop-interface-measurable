@@ -1,5 +1,7 @@
 package org.example;    // Nov 2024
 
+import java.util.ArrayList;
+
 /**
  This program demonstrates the use of a Measurable Interface.
  BankAccount and Country classes implement the Measurable interface.
@@ -53,6 +55,8 @@ public class MainApp
       //
       System.out.println("Average area of measurables: "
               + average(arrayOfMeasurable));
+      System.out.println("\n\n\nTODO Answer:");
+              System.out.println(increaseBy(accounts, 10));
    }//end main.
 
 
@@ -65,6 +69,17 @@ public class MainApp
    // Call the method twice, once passing countries[] and then passing accounts[]
    // and check to see if the method has made the intended increases.
 
+   public static ArrayList<Double> increaseBy(Measurable[] objects, int percent)
+   {
+      ArrayList<Double> answer = new ArrayList<Double>();
+      double answerValue=0;
+      for(int i=0; i<objects.length;i++)
+      {
+         answerValue = objects[i].getMeasure()*(percent/100);
+         answer.add(answerValue);
+      }
+      return answer;
+   }
 
    /** average()
       Computes the average of the measures of the given objects.
